@@ -30,53 +30,470 @@
       const lim14 = "false";
       const lim15 = "lazy";
       const lim16 = "no-referrer";
-      const lim17 = "allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation false ";
+      const lim17 = "allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation false false lazy no-referrer";
+      
+      const ref1 = "no-referrer";
+      const ref2 = "no-referrer-when-downgrade";
+      const ref3 = "origin";
+      const ref4 = "origin-when-cross-origin";
+      const ref5 = "same-origin";
+      const ref6 = "strict-origin";
+      const ref7 = "strict-origin-when-cross-origin";
+      const ref8 = "unsafe-url";
 
       var total = "";
+      var refMax = "no-referrer";
+      var refMin = "unsafe-url";
+      var setSec = 0;
+      var btns = [];
 
-      var btnsHtml = [
-        ["HTML", "", false, ""], ["TEXTs", "", false, ""], ["IMAGs", "", false, ""], ["VIDEOs", "", false, ""], ["AUDIOs", "", false, ""], ["LINKs", "", false, ""], ["LISTs", "", false, ""], ["TABLs", "", false, ""], ["FORMs", "", false, ""], ["PLUGINs", "", false, ""], ["HIDDNs", "", false, ""], ["SCRIPTs", "", false, ""], ["EVENTs", "", false, ""], ["ATRIBTs", "", false, ""], ["METADTs", "", false, ""], ["_", "", false, ""], ["_", "", false, ""], ["_", "", false, ""], ["_", "", false, ""], ["_", "", false, ""]
-        ];
+      var btnsSec7 = [["100%", lim1, true, "max"], ["FORMs", lim2, true, "max"], ["MODs", lim3, true, "max"], ["ORIENT", lim4, true, "max"], ["PNTR", lim5, true, "max"], ["POPUPs I", lim6, true, "max"], ["POPUPs E", lim7, true, "max"], ["PRESENT", lim8, true, "max"], ["ORIGN", lim9, true, "max"], ["SCRIPTs", lim10, true, "max"], ["INI", lim11, true, "max"], ["INI USR", lim12, true, "max"], ["《■》", lim13, true, "max"], ["$", lim14, true, "max"], ["CRG", lim15, true, "max"], ["REFERNCs", lim16, true, "max"], ["0%", lim17, false, "min"], ["_", "", false, ""], ["INFO 7 A", "", false, ""], ["INFO 7 B", "", false, ""]];
 
-      var btnsLim = [["100%", lim1, true, ""], ["FORMs", lim2, true, ""], ["MODs", lim3, true, ""], ["ORIENT", lim4, true, ""], ["PNTR", lim5, true, ""], ["POPUPs I", lim6, true, ""], ["POPUPs E", lim7, true, ""], ["PRESENT", lim8, true, ""], ["ORIGN", lim9, true, ""], ["SCRIPTs", lim10, true, ""], ["INI", lim11, true, ""], ["INI USR", lim12, true, ""], ["《■》", lim13, true, ""], ["$", lim14, true, ""], ["CRG", lim15, true, ""], ["REFERNCs", lim16, true, ""], ["0%", lim17, false, ""], ["_", "", false, ""], ["INFO 1", "", false, ""], ["INFO 2", "", false, ""]];
-      
-      function btnsPrincGris() {
+      var btnsSec11 = [["NO REF", ref1, true, "max"], ["NO REF", ref1, false, "min"], ["NRWD", ref2, false, "max"], ["NRWD", ref2, false, "min"], ["ORIGIN", ref3, false, "max"], ["ORIGIN", ref3, false, "min"], ["OWCO", ref4, false, "max"], ["OWCO", ref4, false, "min"], ["SM ORIG", ref5, false, "max"], ["SM ORIG", ref5, false, "min"], ["STRCT O", ref6, false, "max"], ["STRCT O", ref6, false, "min"], ["SOWCO", ref7, false, "max"], ["SOWCO", ref7, false, "min"], ["UNSF URL", ref8, false, "max"], ["UNSF URL", ref8, true, "min"], ["_", "", false, ""], ["_", "", false, ""], ["INFO 11 A", "", false, ""], ["INFO 11 B", "", false, ""]];
+
+      function btnsPrincGris(e) {
         for (var i = 1; i < 17; i++) {
           var btn = "bp" + String(i);
           var boton = document.getElementById(btn);
-          boton.style = "background-color: grey";
+          if (i == e) {
+            boton.style = 'background-color: cyan';
+          } else if (i == 5 || i == 7 || i == 11 || i == 16) {
+            boton.style = "background-color: lightgrey";
+          } else {
+            boton.style = "background-color: grey";
+          }
         }
-        document.getElementById("bp5").style = "background-color: lightgrey";
-        document.getElementById("bp7").style = "background-color: lightgrey";
-        document.getElementById("bp16").style = "background-color: lightgrey";
+        setSec = e;
+        cargarBtnsSec();
+        mostrarBtnsSec();
         return 0;
       }
       
-      function cargarBtnsSec(btns) {
+      function cargarBtnsSec() {
+        if (setSec == 1) {
+          btns = btnsSec1;
+        } else if (setSec == 2) {
+          btns = btnsSec2;
+        } else if (setSec == 3) {
+          btns = btnsSec3;
+        } else if (setSec == 4) {
+          btns = btnsSec4;
+        } else if (setSec == 5) {
+          btns = btnsSec5;
+        } else if (setSec == 6) {
+          btns = btnsSec6;
+        } else if (setSec == 7) {
+          btns = btnsSec7;
+        } else if (setSec == 8) {
+          btns = btnsSec8;
+        } else if (setSec == 9) {
+          btns = btnsSec9;
+        } else if (setSec == 10) {
+          btns = btnsSec10;
+        } else if (setSec == 11) {
+          btns = btnsSec11;
+        } else if (setSec == 12) {
+          btns = btnsSec12;
+        } else if (setSec == 13) {
+          btns = btnsSec13;
+        } else if (setSec == 14) {
+          btns = btnsSec14;
+        } else if (setSec == 15) {
+          btns = btnsSec15;
+        } else {
+          alert("Parámetro erróneo para la función 'cargarBtnsSec()'.");
+        }
+        return 0;
+      }
+      
+      function guardarBtnsSec() {
+        if (setSec == 1) {
+          btnsSec1 = btns;
+        } else if (setSec == 2) {
+          btnsSec2 = btns;
+        } else if (setSec == 3) {
+          btnsSec3 = btns;
+        } else if (setSec == 4) {
+          btnsSec4 = btns;
+        } else if (setSec == 5) {
+          btnsSec5 = btns;
+        } else if (setSec == 6) {
+          btnsSec6 = btns;
+        } else if (setSec == 7) {
+          btnsSec7 = btns;
+        } else if (setSec == 8) {
+          btnsSec8 = btns;
+        } else if (setSec == 9) {
+          btnsSec9 = btns;
+        } else if (setSec == 10) {
+          btnsSec10 = btns;
+        } else if (setSec == 11) {
+          btnsSec11 = btns;
+        } else if (setSec == 12) {
+          btnsSec12 = btns;
+        } else if (setSec == 13) {
+          btnsSec13 = btns;
+        } else if (setSec == 14) {
+          btnsSec14 = btns;
+        } else if (setSec == 15) {
+          btnsSec15 = btns;
+        } else {
+          
+        }
+        return 0;
+      }
+      
+      function mostrarBtnsSec() {
         for (var i = 0; i < 20; i++) {
           var idT = "b" + String(i+1);
           var idB = "bs" + String(i+1);
           var r = btns[i];
           document.getElementById(idT).innerHTML = r[0];
-          if (r[0] != "_" && r[2] == true) {
+          if (r[0] != "_" && r[2] == true && r[3] == "max") {
             document.getElementById(idB).style = "background-color: cyan";
+            continue;
+          } else if (r[0] != "_" && r[2] == true && r[3] == "min") {
+            document.getElementById(idB).style = "background-color: red";
             continue;
           } else if (r[0] != "_" && r[2] == false) {
             document.getElementById(idB).style = "background-color: lightgrey";
             continue;
           } else {
             document.getElementById(idB).style = "background-color: darkblue";
-            continue;
           }
         }
         return 0;
+      }
+      
+      function btnSec1() {
+        var btn = btns[0];
+        if (setSec == 7) {
+          ajustarLims(1, "", "");
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMaxRef(1);
+        }
+        return 0;
+      }
+      
+      function btnSec2() {
+        var btn = btns[1];
+        if (setSec == 7) {
+          ajustarLims(2, ("allow-forms false false lazy " + refMax), ("allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
+            guardarBtnsSec();
+            aplicarLims();
+            mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMinRef(2);
+        }
+        return 0;
+      }
+      
+      function btnSec3() {
+        var btn = btns[2];
+        if (setSec == 7) {
+          ajustarLims(3, ("allow-modals false false lazy " + refMax), ("allow-forms allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMaxRef(3);
+        }
+        return 0;
+      }
+      
+      function btnSec4() {
+        var btn = btns[3];
+        if (setSec == 7) {
+          ajustarLims(4, ("allow-orientation-lock false false lazy " + refMax), ("allow-forms allow-modals allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMinRef(4);
+        }
+        return 0;
+      }
+      
+      function btnSec5() {
+        var btn = btns[4];
+        if (setSec == 7) {
+          ajustarLims(5, ("allow-pointer-lock false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMaxRef(5);
+        }
+        return 0;
+      }
+      
+      function btnSec6() {
+        var btn = btns[5];
+        if (setSec == 7) {
+          ajustarLims(6, ("allow-popups false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMinRef(6);
+        }
+        return 0;
+      }
+      
+      function btnSec7() {
+        var btn = btns[6];
+        if (setSec == 7) {
+          ajustarLims(7, ("allow-popups-to-escape-sandbox false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMaxRef(7);
+        }
+        return 0;
+      }
+      
+      function btnSec8() {
+        var btn = btns[7];
+        if (setSec == 7) {
+          ajustarLims(8, ("allow-presentation false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMinRef(8);
+        }
+        return 0;
+      }
+      
+      function btnSec9() {
+        var btn = btns[8];
+        if (setSec == 7) {
+          ajustarLims(9, ("allow-same-origin false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMaxRef(9);
+        }
+        return 0;
+      }
+      
+      function btnSec10() {
+        var btn = btns[9];
+        if (setSec == 7) {
+          ajustarLims(10, ("allow-scripts false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMinRef(10);
+        }
+        return 0;
+      }
+      
+      function btnSec11() {
+        var btn = btns[10];
+        if (setSec == 7) {
+          ajustarLims(11, ("allow-top-navigation false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation true true eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMaxRef(11);
+        }
+        return 0;
+      }
+      
+      function btnSec12() {
+        var btn = btns[11];
+        if (setSec == 7) {
+          ajustarLims(12, ("allow-top-navigation-by-user-activation false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation true true eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMinRef(12);
+        }
+        return 0;
+      }
+      
+      function btnSec13() {
+        var btn = btns[12];
+        if (setSec == 7) {
+          ajustarLims(13, (" true false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation false true eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMaxRef(13);
+        }
+        return 0;
+      }
+      
+      function btnSec14() {
+        var btn = btns[13];
+        if (setSec == 7) {
+          ajustarLims(14, (" false true lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true false eager " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMinRef(14);
+        }
+        return 0;
+      }
+      
+      function btnSec15() {
+        var btn = btns[14];
+        if (setSec == 7) {
+          ajustarLims(15, (" false false eager " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true lazy " + refMin));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMaxRef(15);
+        }
+        return 0;
+      }
+      
+      function btnSec16() {
+        var btn = btns[15];
+        if (setSec == 7) {
+          ajustarLims(16, (" false false lazy " + refMin), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMax));
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        } else if (setSec == 11) {
+          limMinRef(16);
+        }
+        return 0;
+      }
+      
+      function btnSec17() {
+        var btn = btns[16];
+        if (setSec == 7) {
+          ajustarLims(17, "", "");
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        }
+        return 0;
+      }
+      
+      function btnSec18() {
+        return 0;
+      }
+      
+      function btnSec19() {
+        var btn = btns[18];
+        if (setSec == 7) {
+          alert("100%: Activa o desactiva todas las limitaciones.\n\nFORMs: Activa o desactiva las funciones de formularios.\n\nMODs: Activa o desactiva el modo de carga libre.\n\nORIENT: Activa o desactiva el giro automático de pantalla.\n\nPNTR: Activa o desactiva el uso de punteros a direcciones de memoria.\n\nPOPUPs I: Admite o bloquea las pantallas emergentes en la misma ventana.\n\nPOPUPs E: Admite o bloquea las pantallas emergentes en nuevas ventanas.\n\nPRESENT: Admite o bloquea, la reproducción automática de presentaciones.\n\nORIGN: Se acepta o rechaza el proveedor del sitio, como fuente de confianza, para los permisos de acceso al dispositivo.\n\nSCRIPTs: Acepta o rechaza la ejecución de código.\n\nINI: Permite que la web cargada, navegue automáticamente, dentro de su entorno superior.\n\n");
+        } else if (setSec == 11) {
+          alert("NO REF: No se enviará información de referencia, con las solicitudes a los servidores.\n\nNRWD: El encabezado de referencia, no se enviará a los orígenes sin HTTPS.\n\nORIGIN: Enviar con las solicitudes a los servidores; solo esquema, host y puerto.\n\nOWCO: Para solicitudes de origen cruzado, envía solo el esquema, el host y el puerto. Para solicitudes del mismo origen, incluye también la ruta.\n\n SM ORIG: Para solicitudes del mismo origen, se envía información de referencia. Para solicitudes de origen cruzado, no se envía información de referencia.\n\nSTRCT O: Envía información de referencia, si el nivel de seguridad es el mismo (por ejemplo, HTTPS a HTTPS). No envía información de referencia, a destinos menos seguros.\n\nSOWCO: Envía la ruta completa, al realizar una solicitud al propio origen. Envía solo el origen, cuando el nivel de seguridad sea igual. No envía encabezado, a destinos menos seguros.\n\n");
+        }
+        return 0;
+      }
+      
+      function btnSec20() {
+        var btn = btns[19];
+        if (setSec == 7) {
+          alert('INI USR: permite o bloquea la navegación, por el nivel superior de la web cargada, de forma manual.\n\n《■》: Bloquea o permite la reproducción automática, en modo pantalla completa.\n\n$: Permite o bloquea la activación automática, de solicitudes de pago.\n\nCRG: Activa el modo restringido o el modo libre de carga.\n\nREFERNCs: Alterna entre los modos, establecidos como máximo y mínimo de datos propios, enviados como referencia a los servidores.\n\n0%: Desactiva o reactiva, todoas las limitaciones.\n\n');
+        } else if (setSec == 11) {
+          alert("UNSF URL: Envía origen, ruta y cadena de consulta (no fragmento, contraseña o nombre de usuario). Este valor se considera inseguro.\n\nMáximo y Mínimo: La restricción máxima, nunca puede ser menor a la mínima, ni la mínima superior a la máxima.\n\nConstante: Para mantener constante, el nivel de restriccióm, en las referencias enviadas al servidor; ajustar el máximo y el mínimo, en un mismo valor.\n\n");
+        }
+        return 0;
+      }
+      
+      function ajustarLims(b, lS , lI) {
+        var btn = btns[b-1];
+        var e = [];
+        if (b == 1) {
+          if (btn[2] == true) {
+            for (var i = 0; i < 16; i++) {
+              e = btns[i];
+              e[2] = false;
+              btns[i] = e;
+            }
+            e = btns[16];
+            e[2] = true;
+            btns[16] = e;
+          } else {
+            for (var i = 0; i < 16; i++) {
+              e = btns[i];
+              e[2] = true;
+              btns[i] = e;
+            }
+            e = btns[16];
+            e[2] = false;
+            btns[16] = e;
+          }
+        } else if (b == 17) {
+          if (btn[2] == true) {
+            for (var i = 0; i < 16; i++) {
+              e = btns[i];
+              e[2] = true;
+              btns[i] = e;
+            }
+            e = btns[16];
+            e[2] = false;
+            btns[16] = e;
+          } else {
+            for (var i = 0; i < 16; i++) {
+              e = btns[i];
+              e[2] = false;
+              btns[i] = e;
+            }
+            e = btns[16];
+            e[2] = true;
+            btns[16] = e;
+          }
+        } else if (1 < b < 17) {
+          if (btn[2] == true) {
+            e = btns[0];
+            e[2] = false;
+            btns[0] = e;
+            e = btns[b-1];
+            e[2] = false;
+            btns[b-1] = e;
+            if (total == lI) {
+              e = btns[16];
+              e[2] = true;
+              btns[16] = e;
+            } else {
+              e = btns[16];
+              e[2] = false;
+              btns[16] = e;
+            }
+          } else {
+            e = btns[16];
+            e[2] = false;
+            btns[16] = e;
+            e = btns[b-1];
+            e[2] = true;
+            btns[b-1] = e;
+            if (total == lS) {
+              e = btns[0];
+              e[2] = true;
+              btns[0] = e;
+            } else {
+              e = btns[0];
+              e[2] = false;
+              btns[0] = e;
+            }
+          }
+        } else {
+        }
       }
       
       function aplicarLims() {
         var sb = "";
         var p = document.getElementById("pantalla");
         for (var i = 1; i < 20; i++) {
-          var e = btnsLim[i];
+          var e = btnsSec7[i];
           var a = false;
           switch (e[0]) {
             case "FORMs":
@@ -179,9 +596,9 @@
               break;
             case "REFERNCs":
               if (e[2] == true) {
-                p.referrerpolicy = "no-referrer";
+                p.referrerpolicy = refMax;
               } else {
-                p.referrerpolicy = "origin";
+                p.referrerpolicy = refMin;
               }
               break;
             case "INFO":
@@ -202,85 +619,134 @@
         return 0;
       }
       
-      function enDes() {
-        alert("Desarrollando...")
+      function limMaxRef(b) {
+        var btn = btns[b-1];
+        var e = [];
+          if (btn[2] == false) {
+            for (var i = 0; i <= 14; i += 2) {
+              e = btns[i];
+              e[2] = false;
+              btns[i] = e;
+            }
+            e = btns[b-1];
+            e[2] = true;
+            refMax = e[1];
+            btns[b-1] = e;
+            for (var i = 1; i < b; i+= 2) {
+              e = btns[i];
+              if (e[2] == true && i < b) {
+                e[2] = false;
+                btns[i] = e;
+                e = btns[b];
+                e[2] = true;
+                refMin = e[1];
+                btns[b] = e;
+              }
+            }
+            guardarBtnsSec();
+            aplicarLims();
+            mostrarBtnsSec();
+          }
+      }
+      
+      function limMinRef(b) {
+        var btn = btns[b-1];
+        var e = [];
+        if (btn[2] == false) {
+          for (var i = 1; i <= 15; i += 2) {
+            e = btns[i];
+            e[2] = false;
+            btns[i] = e;
+          }
+          e = btns[b-1];
+          e[2] = true;
+          refMin = e[1];
+          btns[b-1] = e;
+          for (var i = 0; i < 15; i += 2) {
+            e = btns[i];
+            if (e[2] == true && i >= b) {
+              e[2] = false;
+              btns[i] = e;
+              e = btns[b-2];
+              e[2] = true;
+              refMax = e[1];
+              btns[b-2] = e;
+            }
+          }
+          guardarBtnsSec();
+          aplicarLims();
+          mostrarBtnsSec();
+        }
       }
 
-      function cargado() {
-        return 0;
+      function enDes() {
+        alert("Desarrollando...");
       }
     </script>
   </head>
 
-  <body onload="cargado()" style="background-color:darkblue; color: lightgrey; margin: 0%; padding: 0%; width: 100%;;">
+  <body style="background-color:darkblue; color: lightgrey; margin: 0%; padding: 0%; width: 100%;;">
     <header style="padding-left: 2%; padding-right: 2%; width: 100%"><br>
       <h1 style="text-align:center;margin: 0%; padding: 0%; width: 100%; margin-top: 1%;">WebScan</h1><br>
       <nav style="margin: 0%; padding: 0%; width: 100%;">
         <table style="border: 1px solid grey; margin: 0%; padding: 0%; width: 100%; height: auto;">
           <tr>
             <td>
-              <button id="bp1" onclick=""><b>3°s</b></button>
+              <button id="bp1" onclick=""><b>?</b></button>
             </td>
             <td>
-              <button id="bp2" onclick=""><b>APIs</b></button>
+              <button id="bp2" onclick=""><b>?</b></button>
             </td>
             <td>
-              <button id="bp3" onclick="botonPrinc3()"><b>CONSOL</b></button>
+              <button id="bp3" onclick=""><b>?</b></button>
             </td>
             <td>
-              <button id="bp4" onclick=""><b>CSS</b></button>
+              <button id="bp4" onclick=""><b>?</b></button>
             </td>
           </tr>
           <tr>
             <td>
               <button id="bp5" style="background-color: lightgrey;" onclick="
-              btnsPrincGris();
-              document.getElementById('bp5').style = 'background-color: cyan';
-              cargarBtnsSec(btnsHtml);
+              enDes();
               "><b>HTML</b></button>
             </td>
             <td>
-              <button id="bp6" onclick=""><b>JS</b></button>
+              <button id="bp6" onclick=""><b>?</b></button>
             </td>
             <td>
-              <button id="bp7" style="background-color: lightgrey;" onclick="
-              btnsPrincGris();
-              document.getElementById('bp7').style = 'background-color: cyan';
-              cargarBtnsSec(btnsLim);
-              "><b>LIMITs</b></button>
+              <button id="bp7" style="background-color: lightgrey;" onclick="btnsPrincGris(7);"><b>LIMITs</b></button>
             </td>
             <td>
-              <button id="bp8" onclick=""><b>MEMORs</b></button>
+              <button id="bp8" onclick=""><b>?</b></button>
             </td>
           </tr>
           <tr>
             <td>
-              <button id="bp9" onclick=""><b>NAVG</b></button>
+              <button id="bp9" onclick=""><b>?</b></button>
             </td>
             <td>
-              <button id="bp10" onclick=""><b>NET</b></button>
+              <button id="bp10" onclick=""><b>?</b></button>
             </td>
             <td>
-              <button id="bp11" onclick=""><b>REFERNCs</b></button>
+              <button id="bp11" style="background-color: lightgrey;" onclick="btnsPrincGris(11);
+              "><b>REFERNCs</b></button>
             </td>
             <td>
-              <button id="bp12" onclick=""><b>SERVR</b></button>
+              <button id="bp12" onclick=""><b>?</b></button>
             </td>
           </tr>
           <tr>
             <td>
-              <button id="bp13" onclick=""><b>SSTEM</b></button>
+              <button id="bp13" onclick=""><b>?</b></button>
             </td>
             <td>
-              <button id="bp14" onclick=""><b>SUBPROCs</b></button>
+              <button id="bp14" onclick=""><b>?</b></button>
             </td>
             <td>
-              <button id="bp15" onclick=""><b>WASM</b></button>
+              <button id="bp15" onclick=""><b>?</b></button>
             </td>
             <td>
-              <button id="bp16" style="background-color: lightgrey;" onclick="
-              alert('Desarrollado por: José María Caamaño González\n\nEmail: jose.mcg@hotmail.com');
-              "><b>☆</b></button>
+              <button id="bp16" style="background-color: lightgrey;" onclick="alert('Desarrollado por: José María Caamaño González\n\nEmail: jose.mcg@hotmail.com');"><b>☆</b></button>
             </td>
           </tr>
         </table>
@@ -290,18 +756,9 @@
       <section style="margin 0%; padding: 0%; padding-bottom: 3%; padding-top: 3%; width: 100%;">
         <form style="margin: 0%; padding: 0%; width: 100%;">
           <label for="enlace"style="margin: 0%; padding: 0%; width: 100%;">
-            <button type="button" onclick="
-            var url = document.getElementById('pantalla').src;
-            document.getElementById('pantalla').src = url;
-            " style="margin: 0%; padding: 0%; width: 13%;"><b>🔄</b></button>
+            <button type="button" onclick="var url = document.getElementById('pantalla').src; document.getElementById('pantalla').src = url;" style="margin: 0%; padding: 0%; width: 13%;"><b>🔄</b></button>
             <input style="margin: 0%; padding: 0%; width: 71%;" type="text" name="enlace" id="enlace" placeholder="URL" value="">
-            <button type="button" onclick="
-            var url = document.getElementById('enlace').value;
-            if (url != '') {
-              document.getElementById('pantalla').src = url;
-              document.getElementById('enlace').value = '';
-            }
-            " style="margin: 0%; padding: 0%; width: 13%"><b>➡️</b></button>
+            <button type="button" onclick="var url = document.getElementById('enlace').value; if (url != '') {document.getElementById('pantalla').src = url; document.getElementById('enlace').value = '';}" style="margin: 0%; padding: 0%; width: 13%"><b>➡️</b></button>
           </label>
         </form>
       </section>
@@ -313,649 +770,87 @@
         <table style="border: 1px solid grey; margin: 0%; padding: 0%; width: 100%; height: auto;">
           <tr>
             <td>
-              <button type="button" id="bs1" style="background-color: darkblue" onclick="
-              var uso = document.getElementById('b1').innerHTML;
-              var estado = document.getElementById('bs1').style.backgroundColor;
-              switch (uso) {
-                case 'HTML':
-                  enDes();
-                  break;
-                case '100%':
-                  if (estado == 'cyan') {
-                    for (var i = 0; i < 16; i++) {
-                    var e = btnsLim[i];
-                    e[2] = false;
-                    btnsLim[i] = e;
-                    }
-                  } else {
-                    for (var i = 0; i < 16; i++) {
-                    var e = btnsLim[i];
-                    e[2] = true;
-                    btnsLim[i] = e;
-                    }
-                  }
-                  if (estado == 'cyan') {
-                    var el = btnsLim[16];
-                    el[2] = true;
-                    btnsLim[16] = el;
-                  } else {
-                    var el = btnsLim[16];
-                    el[2] = false;
-                    btnsLim[16] = el;
-                  }
-                  aplicarLims();
-                  cargarBtnsSec(btnsLim);
-                  break;
-                default:
-              }
-              "><b id="b1">_</b></button>
+              <button type="button" id="bs1" style="background-color: darkblue" onclick="btnSec1();"><b id="b1">_</b></button>
             </td>
             <td>
-              <button type="button" id="bs2" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b2').innerHTML;
-                var estado = document.getElementById('bs2').style.backgroundColor;
-                switch (uso) {
-                  case 'TEXTs':
-                    enDes();
-                    break;
-                  case 'FORMs':
-                    var e = btnsLim[1];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == 'allow-forms false false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b2">_</b>
+              <button type="button" id="bs2" style="background-color: darkblue" onclick="btnSec2();"><b id="b2">_</b>
               </button>
             </td>
             <td>
-              <button type="button" id="bs3" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b3').innerHTML;
-                var estado = document.getElementById('bs3').style.backgroundColor;
-                switch (uso) {
-                  case 'IMAGs':
-                    enDes();
-                    break;
-                  case 'MODs':
-                    var e = btnsLim[2];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == 'allow-modals false false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b3">.</b>
+              <button type="button" id="bs3" style="background-color: darkblue" onclick="btnSec3();"><b id="b3">.</b>
               </button>
             </td>
             <td>
-              <button type="button" id="bs4" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b4').innerHTML;
-                var estado = document.getElementById('bs4').style.backgroundColor;
-                switch (uso) {
-                  case 'VIDEOs':
-                    enDes();
-                    break;
-                  case 'ORIENT':
-                    var e = btnsLim[3];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == 'allow-orientation-lock false false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b4">_</b>
+              <button type="button" id="bs4" style="background-color: darkblue" onclick="btnSec4();"><b id="b4">_</b>
               </button>
             </td>
           </tr>
           <tr>
             <td>
-              <button type="button" id="bs5" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b5').innerHTML;
-                var estado = document.getElementById('bs5').style.backgroundColor;
-                switch (uso) {
-                  case 'AUDIOs':
-                    enDes();
-                    break;
-                  case 'PNTR':
-                    var e = btnsLim[4];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == 'allow-pointer-lock false false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b5">_</b>
+              <button type="button" id="bs5" style="background-color: darkblue" onclick="btnSec5();"><b id="b5">_</b>
               </button>
             </td>
             <td>
-              <button type="button" id="bs6" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b6').innerHTML;
-                var estado = document.getElementById('bs6').style.backgroundColor;
-                switch (uso) {
-                  case 'LINKs':
-                    enDes();
-                    break;
-                  case 'POPUPs I':
-                    var e = btnsLim[5];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == 'allow-popups false false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b6">_</b>
+              <button type="button" id="bs6" style="background-color: darkblue" onclick="btnSec6();"><b id="b6">_</b>
               </button>
             </td>
             <td>
-              <button type="button" id="bs7" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b7').innerHTML;
-                var estado = document.getElementById('bs7').style.backgroundColor;
-                switch (uso) {
-                  case 'LISTs':
-                    enDes();
-                    break;
-                  case 'POPUPs E':
-                    var e = btnsLim[6];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == 'allow-popups-to-escape-sandbox false false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b7">_</b>
+              <button type="button" id="bs7" style="background-color: darkblue" onclick="btnSec7();"><b id="b7">_</b>
               </button>
             </td>
             <td>
-              <button type="button" id="bs8" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b8').innerHTML;
-                var estado = document.getElementById('bs8').style.backgroundColor;
-                switch (uso) {
-                  case 'TABLs':
-                    enDes();
-                    break;
-                  case 'PRESENT':
-                    var e = btnsLim[7];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == 'allow-presentation false false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b8">_</b>
+              <button type="button" id="bs8" style="background-color: darkblue" onclick="btnSec8();"><b id="b8">_</b>
               </button>
             </td>
           </tr>
           <tr>
             <td>
-              <button type="button" id="bs9" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b9').innerHTML;
-                var estado = document.getElementById('bs9').style.backgroundColor;
-                switch (uso) {
-                  case 'FORMs':
-                    enDes();
-                    break;
-                  case 'ORIGN':
-                    var e = btnsLim[8];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == 'allow-same-origin false false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b9">_</b>
+              <button type="button" id="bs9" style="background-color: darkblue" onclick="btnSec9();"><b id="b9">_</b>
               </button>
             </td>
             <td>
-              <button type="button" id="bs10" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b10').innerHTML;
-                var estado = document.getElementById('bs10').style.backgroundColor;
-                switch (uso) {
-                  case 'PLUGINs':
-                    enDes();
-                    break;
-                  case 'SCRIPTs':
-                    var e = btnsLim[9];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == 'allow-scripts false false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b10">_</b>
+              <button type="button" id="bs10" style="background-color: darkblue" onclick="btnSec10();"><b id="b10">_</b>
               </button>
             </td>
             <td>
-              <button type="button" id="bs11" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b11').innerHTML;
-                var estado = document.getElementById('bs11').style.backgroundColor;
-                switch (uso) {
-                  case 'HIDDNs':
-                    enDes();
-                    break;
-                  case 'INI':
-                    var e = btnsLim[10];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == 'allow-top-navigation false false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b11">_</b>
+              <button type="button" id="bs11" style="background-color: darkblue" onclick="btnSec11();"><b id="b11">_</b>
               </button>
             </td>
             <td>
-              <button type="button" id="bs12" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b12').innerHTML;
-                var estado = document.getElementById('bs12').style.backgroundColor;
-                switch (uso) {
-                  case 'SCRIPTs':
-                    enDes();
-                    break;
-                  case 'INI USR':
-                    var e = btnsLim[11];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation true true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == 'allow-top-navigation-by-user-activation false false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b12">_</b>
+              <button type="button" id="bs12" style="background-color: darkblue" onclick="btnSec12();"><b id="b12">_</b>
               </button>
             </td>
           </tr>
           <tr>
             <td>
-              <button type="button" id="bs13" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b13').innerHTML;
-                var estado = document.getElementById('bs13').style.backgroundColor;
-                switch (uso) {
-                  case 'EVENTs':
-                    enDes();
-                    break;
-                  case '《■》':
-                    var e = btnsLim[12];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation false true eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == ' true false lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b13">_</b>
+              <button type="button" id="bs13" style="background-color: darkblue" onclick="btnSec13();"><b id="b13">_</b>
               </button>
             </td>
             <td>
-              <button type="button" id="bs14" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b14').innerHTML;
-                var estado = document.getElementById('bs14').style.backgroundColor;
-                switch (uso) {
-                  case 'ATRIBTs':
-                    enDes();
-                    break;
-                  case '$':
-                    var e = btnsLim[13];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true false eager origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == ' false true lazy no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b14">_</b>
+              <button type="button" id="bs14" style="background-color: darkblue" onclick="btnSec14();"><b id="b14">_</b>
               </button>
             </td>
             <td>
-              <button type="button" id="bs15" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b15').innerHTML;
-                var estado = document.getElementById('bs15').style.backgroundColor;
-                switch (uso) {
-                  case 'METADTs':
-                    enDes();
-                    break;
-                  case 'CRG':
-                    var e = btnsLim[14];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true lazy origin') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == ' false false eager no-referrer') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b15">_</b>
+              <button type="button" id="bs15" style="background-color: darkblue" onclick="btnSec15();"><b id="b15">_</b>
               </button>
             </td>
             <td>
-              <button type="button" id="bs16" style="background-color: darkblue" onclick="
-                var uso = document.getElementById('b16').innerHTML;
-                var estado = document.getElementById('bs16').style.backgroundColor;
-                switch (uso) {
-                  case 'REFERNCs':
-                    var e = btnsLim[15];
-                    var p = document.getElementById('pantalla');
-                    var t = btnsLim[0];
-                    var n = btnsLim[16];
-                    if (estado == 'cyan') {
-                      t[2] = false;
-                      e[2] = false;
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager no-referrer') {
-                      n[2] = true;
-                      }
-                    } else {
-                      if (total == ' false false lazy origin') {
-                        t[2] = true;
-                      }
-                      if (total == 'allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager origin') {
-                      n[2] = false;
-                      }
-                      e[2] = true;
-                    }
-                    aplicarLims();
-                    cargarBtnsSec(btnsLim);
-                    break;
-                  default:
-                }
-              "><b id="b16">_</b>
+              <button type="button" id="bs16" style="background-color: darkblue" onclick="btnSec16();"><b id="b16">_</b>
               </button>
             </td>
           </tr>
           <tr>
             <td>
-              <button type="button" id="bs17" style="background-color: darkblue;" onclick="
-              var uso = document.getElementById('b17').innerHTML;
-              var estado = document.getElementById('bs17').style.backgroundColor;
-              switch (uso) {
-                case '0%':
-                  if (estado == 'cyan') {
-                    for (var i = 0; i < 16; i++) {
-                    var e = btnsLim[i];
-                    e[2] = true;
-                    btnsLim[i] = e;
-                    }
-                  } else {
-                    for (var i = 0; i < 16; i++) {
-                    var e = btnsLim[i];
-                    e[2] = false;
-                    btnsLim[i] = e;
-                    }
-                  }
-                  if (estado == 'cyan') {
-                    var el = btnsLim[16];
-                    el[2] = false;
-                    btnsLim[16] = el;
-                  } else {
-                    var el = btnsLim[16];
-                    el[2] = true;
-                    btnsLim[16] = el;
-                  }
-                  aplicarLims();
-                  cargarBtnsSec(btnsLim);
-                  break;
-                default:
-              }
-              "><b id="b17">_</b></button>
+              <button type="button" id="bs17" style="background-color: darkblue;" onclick="btnSec17();"><b id="b17">_</b></button>
             </td>
             <td>
-              <button type="button" id="bs18" style="background-color: darkblue" onclick=""><b id="b18">_</b></button>
+              <button type="button" id="bs18" style="background-color: darkblue" onclick="btnSec18();"><b id="b18">_</b></button>
             </td>
             <td>
-              <button type="butt19" id="bs19" style="background-color: darkblue" onclick="
-              var uso = document.getElementById('b19').innerHTML;
-              var estado = document.getElementById('bs19').style.backgroundColor;
-              switch (uso) {
-                case 'INFO 1':
-                  alert('100%: Activa o desactiva todas las limitaciones.\n\nFORMs: Activa o desactiva las funciones de formularios.\n\nMODs: Activa o desactiva el modo de carga libre.\n\nORIENT: Activa o desactiva el giro automático de pantalla.\n\nPNTR: Activa o desactiva el uso de punteros a direcciones de memoria.\n\nPOPUPs I: Admite o bloquea las pantallas emergentes en la misma ventana.\n\nPOPUPs E: Admite o bloquea las pantallas emergentes en nuevas ventanas.\n\nPRESENT: Admite o bloquea, la reproducción automática de presentaciones.\n\nORIGN: Se acepta o rechaza el proveedor del sitio, como fuente de confianza, para los permisos de acceso al dispositivo.\n\nSCRIPTs: Acepta o rechaza la ejecución de código.\n\nINI: Permite que la web cargada, navegue automáticamente, dentro de su entorno superior.');
-                  break;
-                default:
-              }
-              "><b id="b19">_</b></button>
+              <button type="butt19" id="bs19" style="background-color: darkblue" onclick="btnSec19();"><b id="b19">_</b></button>
             </td>
             <td>
-              <button type="button" id="bs20" style="background-color: darkblue" onclick="
-              var uso = document.getElementById('b20').innerHTML;
-              var estado = document.getElementById('bs20');
-              switch (uso) {
-                case 'INFO 2':
-                  alert('INI USR: permite o bloquea la navegación, por el nivel superior de la web cargada, de forma manual.\n\n《■》: Bloquea o permite la reproducción automática, en modo pantalla completa.\n\n$: Permite o bloquea la activación automática, de solicitudes de pago.\n\nCRG: Activa el modo restringido o el modo libre de carga.\n\nREFERNCs: Alterna entre los modos, establecidos como máximo y mínimo de datos propios, enviados como referencia a los servidores.\n\n0%: Desactiva o reactiva, todoas las limitaciones.');
-                  break;
-                default:
-              }
-              "><b id="b20">_</b></button>
+              <button type="button" id="bs20" style="background-color: darkblue" onclick="btnSec20();"><b id="b20">_</b></button>
             </td>
           </tr>
         </table>
