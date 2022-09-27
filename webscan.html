@@ -31,7 +31,7 @@
       const lim15 = "lazy";
       const lim16 = "no-referrer";
       const lim17 = "allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation false false lazy no-referrer";
-      
+
       const ref1 = "no-referrer";
       const ref2 = "no-referrer-when-downgrade";
       const ref3 = "origin";
@@ -49,7 +49,7 @@
 
       var btnsSec7 = [["100%", lim1, true, "max"], ["FORMs", lim2, true, "max"], ["MODs", lim3, true, "max"], ["ORIENT", lim4, true, "max"], ["PNTR", lim5, true, "max"], ["POPUPs I", lim6, true, "max"], ["POPUPs E", lim7, true, "max"], ["PRESENT", lim8, true, "max"], ["ORIGN", lim9, true, "max"], ["SCRIPTs", lim10, true, "max"], ["INI", lim11, true, "max"], ["INI USR", lim12, true, "max"], ["《■》", lim13, true, "max"], ["$", lim14, true, "max"], ["CRG", lim15, true, "max"], ["REFERNCs", lim16, true, "max"], ["0%", lim17, false, "min"], ["_", "", false, ""], ["INFO 7 A", "", false, ""], ["INFO 7 B", "", false, ""]];
 
-      var btnsSec11 = [["NO REF", ref1, true, "max"], ["NO REF", ref1, false, "min"], ["NRWD", ref2, false, "max"], ["NRWD", ref2, false, "min"], ["ORIGIN", ref3, false, "max"], ["ORIGIN", ref3, false, "min"], ["OWCO", ref4, false, "max"], ["OWCO", ref4, false, "min"], ["SM ORIG", ref5, false, "max"], ["SM ORIG", ref5, false, "min"], ["STRCT O", ref6, false, "max"], ["STRCT O", ref6, false, "min"], ["SOWCO", ref7, false, "max"], ["SOWCO", ref7, false, "min"], ["UNSF URL", ref8, false, "max"], ["UNSF URL", ref8, true, "min"], ["_", "", false, ""], ["_", "", false, ""], ["INFO 11 A", "", false, ""], ["INFO 11 B", "", false, ""]];
+      var btnsSec11 = [["NO REF", "no-referrer", true, "max"], ["NO REF", "no-referrer", false, "min"], ["NRWD", "no-referrer-when-downgrade", false, "max"], ["NRWD", "no-referrer-when-downgrade", false, "min"], ["ORIGIN", "origin", false, "max"], ["ORIGIN", "origin", false, "min"], ["OWCO", "origin-when-cross-origin", false, "max"], ["OWCO", "origin-when-cross-origin", false, "min"], ["SM ORIG", "same-origin", false, "max"], ["SM ORIG", "same-origin", false, "min"], ["STRCT O", "strict-origin", false, "max"], ["STRCT O", "strict-origin", false, "min"], ["SOWCO", ref7, false, "max"], ["SOWCO", ref7, false, "min"], ["UNSF URL", ref8, false, "max"], ["UNSF URL", ref8, true, "min"], ["_", "", false, ""], ["_", "", false, ""], ["INFO 11 A", "", false, ""], ["INFO 11 B", "", false, ""]];
 
       function btnsPrincGris(e) {
         for (var i = 1; i < 17; i++) {
@@ -68,7 +68,7 @@
         mostrarBtnsSec();
         return 0;
       }
-      
+
       function cargarBtnsSec() {
         if (setSec == 1) {
           btns = btnsSec1;
@@ -100,12 +100,10 @@
           btns = btnsSec14;
         } else if (setSec == 15) {
           btns = btnsSec15;
-        } else {
-          alert("Parámetro erróneo para la función 'cargarBtnsSec()'.");
         }
         return 0;
       }
-      
+
       function guardarBtnsSec() {
         if (setSec == 1) {
           btnsSec1 = btns;
@@ -137,8 +135,6 @@
           btnsSec14 = btns;
         } else if (setSec == 15) {
           btnsSec15 = btns;
-        } else {
-          
         }
         return 0;
       }
@@ -166,7 +162,6 @@
       }
       
       function btnSec1() {
-        var btn = btns[0];
         if (setSec == 7) {
           ajustarLims(1, "", "");
           guardarBtnsSec();
@@ -179,7 +174,6 @@
       }
       
       function btnSec2() {
-        var btn = btns[1];
         if (setSec == 7) {
           ajustarLims(2, ("allow-forms false false lazy " + refMax), ("allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
             guardarBtnsSec();
@@ -192,7 +186,6 @@
       }
       
       function btnSec3() {
-        var btn = btns[2];
         if (setSec == 7) {
           ajustarLims(3, ("allow-modals false false lazy " + refMax), ("allow-forms allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
           guardarBtnsSec();
@@ -205,7 +198,6 @@
       }
       
       function btnSec4() {
-        var btn = btns[3];
         if (setSec == 7) {
           ajustarLims(4, ("allow-orientation-lock false false lazy " + refMax), ("allow-forms allow-modals allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
           guardarBtnsSec();
@@ -218,7 +210,6 @@
       }
       
       function btnSec5() {
-        var btn = btns[4];
         if (setSec == 7) {
           ajustarLims(5, ("allow-pointer-lock false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
           guardarBtnsSec();
@@ -231,7 +222,6 @@
       }
       
       function btnSec6() {
-        var btn = btns[5];
         if (setSec == 7) {
           ajustarLims(6, ("allow-popups false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
           guardarBtnsSec();
@@ -244,7 +234,6 @@
       }
       
       function btnSec7() {
-        var btn = btns[6];
         if (setSec == 7) {
           ajustarLims(7, ("allow-popups-to-escape-sandbox false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
           guardarBtnsSec();
@@ -257,7 +246,6 @@
       }
       
       function btnSec8() {
-        var btn = btns[7];
         if (setSec == 7) {
           ajustarLims(8, ("allow-presentation false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
           guardarBtnsSec();
@@ -270,7 +258,6 @@
       }
       
       function btnSec9() {
-        var btn = btns[8];
         if (setSec == 7) {
           ajustarLims(9, ("allow-same-origin false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
           guardarBtnsSec();
@@ -283,7 +270,6 @@
       }
       
       function btnSec10() {
-        var btn = btns[9];
         if (setSec == 7) {
           ajustarLims(10, ("allow-scripts false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMin));
           guardarBtnsSec();
@@ -296,7 +282,6 @@
       }
       
       function btnSec11() {
-        var btn = btns[10];
         if (setSec == 7) {
           ajustarLims(11, ("allow-top-navigation false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation-by-user-activation true true eager " + refMin));
           guardarBtnsSec();
@@ -309,7 +294,6 @@
       }
       
       function btnSec12() {
-        var btn = btns[11];
         if (setSec == 7) {
           ajustarLims(12, ("allow-top-navigation-by-user-activation false false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation true true eager " + refMin));
           guardarBtnsSec();
@@ -322,7 +306,6 @@
       }
       
       function btnSec13() {
-        var btn = btns[12];
         if (setSec == 7) {
           ajustarLims(13, (" true false lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation false true eager " + refMin));
           guardarBtnsSec();
@@ -335,7 +318,6 @@
       }
       
       function btnSec14() {
-        var btn = btns[13];
         if (setSec == 7) {
           ajustarLims(14, (" false true lazy " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true false eager " + refMin));
           guardarBtnsSec();
@@ -348,7 +330,6 @@
       }
       
       function btnSec15() {
-        var btn = btns[14];
         if (setSec == 7) {
           ajustarLims(15, (" false false eager " + refMax), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true lazy " + refMin));
           guardarBtnsSec();
@@ -361,7 +342,6 @@
       }
       
       function btnSec16() {
-        var btn = btns[15];
         if (setSec == 7) {
           ajustarLims(16, (" false false lazy " + refMin), ("allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation true true eager " + refMax));
           guardarBtnsSec();
@@ -374,7 +354,6 @@
       }
       
       function btnSec17() {
-        var btn = btns[16];
         if (setSec == 7) {
           ajustarLims(17, "", "");
           guardarBtnsSec();
@@ -389,7 +368,6 @@
       }
       
       function btnSec19() {
-        var btn = btns[18];
         if (setSec == 7) {
           alert("100%: Activa o desactiva todas las limitaciones.\n\nFORMs: Activa o desactiva las funciones de formularios.\n\nMODs: Activa o desactiva el modo de carga libre.\n\nORIENT: Activa o desactiva el giro automático de pantalla.\n\nPNTR: Activa o desactiva el uso de punteros a direcciones de memoria.\n\nPOPUPs I: Admite o bloquea las pantallas emergentes en la misma ventana.\n\nPOPUPs E: Admite o bloquea las pantallas emergentes en nuevas ventanas.\n\nPRESENT: Admite o bloquea, la reproducción automática de presentaciones.\n\nORIGN: Se acepta o rechaza el proveedor del sitio, como fuente de confianza, para los permisos de acceso al dispositivo.\n\nSCRIPTs: Acepta o rechaza la ejecución de código.\n\nINI: Permite que la web cargada, navegue automáticamente, dentro de su entorno superior.\n\n");
         } else if (setSec == 11) {
@@ -399,7 +377,6 @@
       }
       
       function btnSec20() {
-        var btn = btns[19];
         if (setSec == 7) {
           alert('INI USR: permite o bloquea la navegación, por el nivel superior de la web cargada, de forma manual.\n\n《■》: Bloquea o permite la reproducción automática, en modo pantalla completa.\n\n$: Permite o bloquea la activación automática, de solicitudes de pago.\n\nCRG: Activa el modo restringido o el modo libre de carga.\n\nREFERNCs: Alterna entre los modos, establecidos como máximo y mínimo de datos propios, enviados como referencia a los servidores.\n\n0%: Desactiva o reactiva, todoas las limitaciones.\n\n');
         } else if (setSec == 11) {
@@ -687,7 +664,9 @@
 
   <body style="background-color:darkblue; color: lightgrey; margin: 0%; padding: 0%; width: 100%;;">
     <header style="padding-left: 2%; padding-right: 2%; width: 100%"><br>
-      <h1 style="text-align:center;margin: 0%; padding: 0%; width: 100%; margin-top: 1%;">WebScan</h1><br>
+      <h1 style="text-align:center;margin: 0%; padding: 0%; width: 100%; margin-top: 1%;">WebScan</h1>
+      <p width="100" style="text-align: center; font-size: 3vw;"><b><a>https://freekibyte.github.io/freekibyte/index.html</a></b></p>
+      <br>
       <nav style="margin: 0%; padding: 0%; width: 100%;">
         <table style="border: 1px solid grey; margin: 0%; padding: 0%; width: 100%; height: auto;">
           <tr>
